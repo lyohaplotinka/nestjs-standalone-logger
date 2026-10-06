@@ -1,0 +1,59 @@
+{
+  "name": "@lyohaplotinka/nestjs-standalone-logger",
+  "version": "0.1.0",
+  "description": "NestJS logger extracted from the framework and decoupled from it. Works in any Node.js or Bun project with zero NestJS dependencies.",
+  "type": "module",
+  "license": "MIT",
+  "author": "lyohaplotinka",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeysolovyov/nestjs-standalone-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexeysolovyov/nestjs-standalone-logger/issues"
+  },
+  "keywords": [
+    "nestjs",
+    "logger",
+    "logging",
+    "console",
+    "standalone",
+    "log-levels"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "example": "bun ./src/example.ts",
+    "prepublishOnly": "bun run typecheck && bun run build"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "tsdown": "^0.14.1"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  }
+}
