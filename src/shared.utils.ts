@@ -1,33 +1,25 @@
-export const isUndefined = (obj: unknown): obj is undefined =>
-  typeof obj === 'undefined';
+export const isUndefined = (obj: unknown): obj is undefined => typeof obj === 'undefined'
 
-export const isObject = (fn: unknown): fn is object =>
-  !isNil(fn) && typeof fn === 'object';
+export const isObject = (fn: unknown): fn is object => !isNil(fn) && typeof fn === 'object'
 
 export const isPlainObject = (fn: unknown): fn is object => {
   if (!isObject(fn)) {
-    return false;
+    return false
   }
-  const proto = Object.getPrototypeOf(fn);
+  const proto = Object.getPrototypeOf(fn)
   if (proto === null) {
-    return true;
+    return true
   }
-  const ctor =
-    Object.hasOwn(proto, 'constructor') &&
-    proto.constructor;
+  const ctor = Object.hasOwn(proto, 'constructor') && proto.constructor
   return (
     typeof ctor === 'function' &&
     ctor instanceof ctor &&
-    Function.prototype.toString.call(ctor) ===
-      Function.prototype.toString.call(Object)
-  );
-};
+    Function.prototype.toString.call(ctor) === Function.prototype.toString.call(Object)
+  )
+}
 
-export const isFunction = (val: unknown): val is Function =>
-  typeof val === 'function';
+export const isFunction = (val: unknown): val is Function => typeof val === 'function'
 
-export const isString = (val: unknown): val is string =>
-  typeof val === 'string';
+export const isString = (val: unknown): val is string => typeof val === 'string'
 
-export const isNil = (val: unknown): val is null | undefined =>
-  isUndefined(val) || val === null;
+export const isNil = (val: unknown): val is null | undefined => isUndefined(val) || val === null

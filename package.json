@@ -2,24 +2,28 @@
   "name": "@lyohaplotinka/nestjs-standalone-logger",
   "version": "0.1.0",
   "description": "NestJS logger extracted from the framework and decoupled from it. Works in any Node.js or Bun project with zero NestJS dependencies.",
-  "type": "module",
+  "keywords": [
+    "console",
+    "log-levels",
+    "logger",
+    "logging",
+    "nestjs",
+    "standalone"
+  ],
+  "bugs": {
+    "url": "https://github.com/alexeysolovyov/nestjs-standalone-logger/issues"
+  },
   "license": "MIT",
   "author": "lyohaplotinka",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexeysolovyov/nestjs-standalone-logger.git"
   },
-  "bugs": {
-    "url": "https://github.com/alexeysolovyov/nestjs-standalone-logger/issues"
-  },
-  "keywords": [
-    "nestjs",
-    "logger",
-    "logging",
-    "console",
-    "standalone",
-    "log-levels"
+  "files": [
+    "dist"
   ],
+  "type": "module",
+  "sideEffects": false,
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
@@ -31,29 +35,30 @@
     },
     "./package.json": "./package.json"
   },
-  "files": [
-    "dist"
-  ],
-  "sideEffects": false,
-  "engines": {
-    "node": ">=18"
-  },
   "scripts": {
     "build": "tsdown",
     "typecheck": "tsc --noEmit",
-    "example": "bun ./src/example.ts",
-    "prepublishOnly": "bun run typecheck && bun run build"
+    "example": "bun ./example.ts",
+    "prepublishOnly": "bun run lint && bun run typecheck && bun run build",
+    "lint": "oxfmt && oxlint --fix"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "tsdown": "^0.14.1"
+    "lefthook": "^2.1.17",
+    "oxfmt": "^0.72.0",
+    "oxlint": "^1.87.0",
+    "tsdown": "^0.23.0",
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "typescript": ">=5.0"
+    "typescript": "5.9.3"
   },
   "peerDependenciesMeta": {
     "typescript": {
       "optional": true
     }
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

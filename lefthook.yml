@@ -1,0 +1,6 @@
+pre-commit:
+  jobs:
+    - name: Lint and typecheck
+      glob: '{src}/**/*.{js,ts,jsx,tsx,mjs,mts}'
+      run: 'bun run lint && bun run typecheck'
+      stage_fixed: true

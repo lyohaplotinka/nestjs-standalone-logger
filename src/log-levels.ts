@@ -5,9 +5,9 @@ export const LOG_LEVELS = [
   'warn',
   'error',
   'fatal',
-] as const satisfies string[];
+] as const satisfies string[]
 
-export type LogLevel = (typeof LOG_LEVELS)[number];
+export type LogLevel = (typeof LOG_LEVELS)[number]
 
 const LOG_LEVEL_VALUES: Record<LogLevel, number> = {
   verbose: 0,
@@ -16,7 +16,7 @@ const LOG_LEVEL_VALUES: Record<LogLevel, number> = {
   warn: 3,
   error: 4,
   fatal: 5,
-};
+}
 
 /**
  * Checks if target level is enabled.
@@ -28,18 +28,18 @@ export function isLogLevelEnabled(
   logLevels: LogLevel[] | undefined,
 ): boolean {
   if (!logLevels || (Array.isArray(logLevels) && logLevels?.length === 0)) {
-    return false;
+    return false
   }
   if (logLevels.includes(targetLevel)) {
-    return true;
+    return true
   }
 
-  let highestLogLevelValue = -Infinity;
+  let highestLogLevelValue = -Infinity
   for (const level of logLevels) {
-    const v = LOG_LEVEL_VALUES[level];
-    if (v > highestLogLevelValue) highestLogLevelValue = v;
+    const v = LOG_LEVEL_VALUES[level]
+    if (v > highestLogLevelValue) highestLogLevelValue = v
   }
 
-  const targetLevelValue = LOG_LEVEL_VALUES[targetLevel];
-  return targetLevelValue >= highestLogLevelValue;
+  const targetLevelValue = LOG_LEVEL_VALUES[targetLevel]
+  return targetLevelValue >= highestLogLevelValue
 }

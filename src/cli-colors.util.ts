@@ -1,8 +1,8 @@
-type ColorTextFn = (text: string) => string;
+type ColorTextFn = (text: string) => string
 
-export const isColorAllowed = () => !process.env.NO_COLOR;
+export const isColorAllowed = () => !process.env.NO_COLOR
 const colorIfAllowed = (colorFn: ColorTextFn) => (text: string) =>
-  isColorAllowed() ? colorFn(text) : text;
+  isColorAllowed() ? colorFn(text) : text
 
 export const clc = {
   bold: colorIfAllowed((text: string) => `\x1B[1m${text}\x1B[0m`),
@@ -11,7 +11,5 @@ export const clc = {
   red: colorIfAllowed((text: string) => `\x1B[31m${text}\x1B[39m`),
   magentaBright: colorIfAllowed((text: string) => `\x1B[95m${text}\x1B[39m`),
   cyanBright: colorIfAllowed((text: string) => `\x1B[96m${text}\x1B[39m`),
-};
-export const yellow = colorIfAllowed(
-  (text: string) => `\x1B[38;5;3m${text}\x1B[39m`,
-);
+}
+export const yellow = colorIfAllowed((text: string) => `\x1B[38;5;3m${text}\x1B[39m`)
