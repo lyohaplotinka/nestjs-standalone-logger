@@ -11,16 +11,17 @@
     "standalone"
   ],
   "bugs": {
-    "url": "https://github.com/alexeysolovyov/nestjs-standalone-logger/issues"
+    "url": "https://github.com/lyohaplotinka/nestjs-standalone-logger/issues"
   },
   "license": "MIT",
   "author": "lyohaplotinka",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexeysolovyov/nestjs-standalone-logger.git"
+    "url": "git+https://github.com/lyohaplotinka/nestjs-standalone-logger.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "type": "module",
   "sideEffects": false,
